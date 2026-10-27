@@ -1,0 +1,279 @@
+/* Style utama: dipakai kedua halaman (warna, font, nav, header, footer) + Etalase */
+:root {
+  --bg: #f6f7f4;
+  --ink: #1c2321;
+  --muted: #5d6b66;
+  --card: #fff;
+  --line: #d9dfdb;
+  --accent: #0aff5f;
+  --accent-strong: #77ff78;
+  --accent-soft: #bfffeb;
+  --accent-ink: #081e12;
+  --err: #b42318;
+  --ok: #067647;
+  --warn: #b54708;
+  --warn-bg: #fef0c7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121816;
+    --ink: #e8eeeb;
+    --muted: #9aa8a2;
+    --card: #1a2220;
+    --line: #2d3935;
+    --accent: #77ff78;
+    --accent-strong: #0aff5f;
+    --accent-soft: #bfffeb;
+    --accent-ink: #06170f;
+    --err: #f97066;
+    --ok: #47cd89;
+    --warn: #fdb022;
+    --warn-bg: #3a2c08;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.9rem 1.5rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 2px;
+}
+nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+header {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 0.5rem;
+}
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin: 0.1rem 0 0.25rem;
+}
+header p {
+  color: var(--muted);
+  margin: 0;
+}
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 3rem;
+}
+footer {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+button {
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.65rem 1.2rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+button.ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+input,
+select,
+textarea {
+  width: 100%;
+  font: inherit;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+/* Etalase */
+.controls {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.75rem;
+}
+@media (max-width: 560px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: var(--bg);
+}
+.card .body {
+  padding: 0.8rem 1rem 1rem;
+}
+.card h2 {
+  font-size: 1rem;
+  margin: 0 0 0.25rem;
+}
+.price {
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+.badge {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+#status {
+  padding: 1rem;
+  color: var(--muted);
+}
+#status:empty {
+  display: none;
+}
+#status.error {
+  color: var(--err);
+  border: 1px dashed var(--err);
+  border-radius: 8px;
+}
+#status button {
+  margin-left: 0.75rem;
+}
+
+/* Navigasi: nama di kiri, link di kanan */
+nav {
+  align-items: center;
+}
+.brand {
+  margin-right: auto;
+  font-weight: 700;
+}
+#reloadBtn {
+  white-space: nowrap;
+}
+.controls {
+  grid-template-columns: 2fr 1fr auto;
+}
+@media (max-width: 560px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}
+#count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.card .thumb {
+  background: var(--bg);
+}
+.disc {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  background: var(--accent-strong);
+  color: var(--accent-ink);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+}
+.cat {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0.5rem;
+}
+.stars {
+  color: #f5b301;
+  letter-spacing: 1px;
+}
+.stars .off {
+  color: var(--line);
+}
+.prices {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.price {
+  font-size: 1.1rem;
+  color: var(--accent-strong);
+}
+.old {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 0.85rem;
+}
+.card .badge {
+  margin-left: 0;
+}
