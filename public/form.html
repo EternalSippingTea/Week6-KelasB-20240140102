@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caption — Product Caption Generator</title>
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+
+  <nav>
+    <span class="brand">Far.R.M 102</span>
+    <a href="index.html">Gallery</a>
+    <a href="form.html" aria-current="page">Caption</a>
+  </nav>
+
+  <header>
+    <div class="eyebrow">Shelf No. 02 — Cashier Desk</div>
+    <h1>Caption</h1>
+    <p>enter product details, choose the platform &amp; language style, and the caption is ready</p>
+  </header>
+
+  <main class="layout">
+    <form id="form" novalidate>
+      <h2>Content Details</h2>
+
+      <label for="nama">Product Name / Topic</label>
+      <input type="text" id="nama" placeholder="example: Palm Sugar Milk Coffee" aria-describedby="nama-error">
+      <div class="counter" id="hitung-nama">0 / 80</div>
+      <small class="error" id="nama-error" aria-live="polite"></small>
+
+      <div class="row">
+        <div>
+          <label for="platform">Platform</label>
+          <select id="platform">
+            <option value="instagram">Instagram</option>
+            <option value="tiktok">TikTok</option>
+            <option value="facebook">Facebook</option>
+            <option value="x">X (Twitter)</option>
+          </select>
+        </div>
+        <div>
+          <label for="tone">Language Style (Template)</label>
+          <select id="tone">
+            <option value="profesional">Professional</option>
+            <option value="santai">Casual</option>
+            <option value="semangat">Promo Spirit</option>
+            <option value="elegan">Elegant</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="deskripsi">Main Advantages / Short Description</label>
+      <textarea id="deskripsi" rows="3" placeholder="example: Fresh milk coffee with authentic palm sugar, perfectly sweet and preservative-free" aria-describedby="deskripsi-error"></textarea>
+      <div class="counter" id="hitung-deskripsi">0 / 250</div>
+      <small class="error" id="deskripsi-error" aria-live="polite"></small>
+
+      <div class="row">
+        <div>
+          <label for="promo">Promo Info (optional)</label>
+          <input type="text" id="promo" placeholder="example: 20% Discount" aria-describedby="promo-error">
+          <small class="error" id="promo-error" aria-live="polite"></small>
+        </div>
+        <div>
+          <label for="cta">Call to Action (optional)</label>
+          <input type="text" id="cta" placeholder="example: Order now!" aria-describedby="cta-error">
+          <small class="error" id="cta-error" aria-live="polite"></small>
+        </div>
+      </div>
+
+      <label for="keywords">Hashtag Keywords (separate with commas)</label>
+      <input type="text" id="keywords" placeholder="example: coffee, beverage, cafe" aria-describedby="keywords-error">
+      <small class="error" id="keywords-error" aria-live="polite"></small>
+
+      <div class="checks">
+        <label class="check"><input type="checkbox" id="emoji" checked> Include Emoji</label>
+        <label class="check"><input type="checkbox" id="hashtag" checked> Include Auto Hashtags</label>
+      </div>
+
+      <div class="actions">
+        <button type="submit">Create Caption</button>
+        <button type="button" id="reset" class="ghost">Reset</button>
+      </div>
+    </form>
+
+    <section class="panel" aria-labelledby="hasil-judul">
+      <div class="panel-head">
+        <h2 id="hasil-judul">Caption Result</h2>
+        <span class="pill" id="badge" hidden></span>
+      </div>
+      <label for="caption" class="sr-only">Caption Result</label>
+      <textarea id="caption" rows="10" readonly placeholder="The caption will appear here after you click Create Caption." aria-live="polite"></textarea>
+      <p class="stats">Characters: <b id="stat-char">0</b> &nbsp; Words: <b id="stat-word">0</b> &nbsp; Hashtags: <b id="stat-tag">0</b></p>
+      <div class="actions">
+        <button type="button" id="salin" disabled>Copy Caption</button>
+        <button type="button" id="variasi" class="ghost" disabled>Other Variations</button>
+      </div>
+      <p class="feedback" id="salin-info" aria-live="polite"></p>
+
+      <div class="history-head">
+        <h3>Caption History This Session</h3>
+        <button type="button" id="hapus" class="link" hidden>Delete All</button>
+      </div>
+      <ul id="riwayat"><li class="empty">No captions yet.</li></ul>
+    </section>
+  </main>
+
+  <footer>
+    caption generator &middot; built with native HTML + JS
+  </footer>
+
+<script src="js/form.js"></script>
+</body>
+</html>
